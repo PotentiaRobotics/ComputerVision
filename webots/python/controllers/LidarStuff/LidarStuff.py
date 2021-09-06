@@ -19,6 +19,7 @@ behavior.
 """
 
 from controller import Lidar
+from controller import LidarPoint
 from controller import DistanceSensor
 from controller import Robot
 
@@ -26,18 +27,19 @@ TIME_STEP = 32
 
 robot = Robot()
 
-us0 = DistanceSensor("us0")
-us1 = DistanceSensor("us1")
-us0.enable(TIME_STEP)
-us1.enable(TIME_STEP)
-
+# print(point)
 
 lidar = Lidar("lidar")
 lidar.enable(TIME_STEP)
 lidar.enablePointCloud()
-print(lidar.getFrequency())
-while robot.step(32) != -1:
-    print(lidar)
+
+# https://pcl.readthedocs.io/projects/tutorials/en/latest/
+
+# print(temp[10][0])
+# while robot.step(1000) != -1:
+    # temp = lidar.getPointCloud()
+    # for i in temp:
+        # print(i)
 # print(help(lidar))
 # lidar = robot.getDevice("lidar")
 # lidar.enable(TIME_STEP)
